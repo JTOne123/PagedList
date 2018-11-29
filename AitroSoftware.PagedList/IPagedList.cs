@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace AitroSoftware.PagedList
 {
+    /// <summary>
+    /// Represents a subset of a collection of objects
+    /// </summary>
     public interface IPagedList : IEnumerable
     {
         /// <summary>
@@ -26,6 +29,10 @@ namespace AitroSoftware.PagedList
         int PageSize { get; }
     }
 
+    /// <summary>
+    /// Represents a subset of a collection of objects
+    /// </summary>
+    /// <typeparam name="T">The type of objects the collection should contain.</typeparam>
     public interface IPagedList<out T> : IPagedList, IEnumerable<T>
     {
         /// <summary>
