@@ -25,6 +25,26 @@ namespace AitroSoftware.PagedList.Tests
             Assert.Equal(10, pagedList.PageSize);
         }
 
+        [Fact]
+        public void EmptyListShouldHaveZeroPages()
+        {
+            var data = Enumerable.Empty<int>();
+
+            var pagedList = data.ToPagedList(1, 10);
+
+            Assert.Equal(0, pagedList.Count);
+        }
+
+        [Fact]
+        public void OutOfRangePageShouldShowZeroItems()
+        {
+            var data = Enumerable.Range(1, 20);
+
+            var pagedList = data.ToPagedList(1000, 40);
+
+            Assert.Equal(0, pagedList.Count);
+        }
+
         [Theory]
         [InlineData(new[] { 1, 2, 3, 4 }, 1, 1)]
         [InlineData(new[] { 1, 2, 3, 4, 5 }, 2, 2)]
