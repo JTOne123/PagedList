@@ -24,7 +24,7 @@ namespace AitroSoftware.PagedList
         {
             return new PagedList<TDest>(
                 source.Select(selector),
-                source.PageNumber,
+                source.PageIndex,
                 source.PageSize,
                 source.TotalItemCount);
         }

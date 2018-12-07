@@ -16,20 +16,20 @@ namespace AitroSoftware.PagedList
         /// Initializes a new instance of the <see cref="PagedList{TElement}"/> class.
         /// </summary>
         /// <param name="currentPage">The enumerable of current page objects</param>
-        /// <param name="page">The 1 based index of the current page</param>
+        /// <param name="pageIndex">The 1 based index of the current page</param>
         /// <param name="pageSize">The size of any individual page</param>
         /// <param name="totalCount">The total number of items in the superset</param>
         public PagedList(
             IEnumerable<TElement> currentPage,
-            int page,
+            int pageIndex,
             int pageSize,
             int totalCount)
         {
             _subset.AddRange(currentPage);
 
-            if (page < 1)
+            if (pageIndex < 1)
             {
-                throw new ArgumentOutOfRangeException(nameof(page), "Page cannot be less than 1");
+                throw new ArgumentOutOfRangeException(nameof(pageIndex), "Page cannot be less than 1");
             }
 
             if (pageSize < 0)
@@ -38,7 +38,7 @@ namespace AitroSoftware.PagedList
             }
 
             TotalItemCount = totalCount;
-            PageNumber = page;
+            PageIndex = pageIndex;
             PageSize = pageSize;
             TotalPages = (int)Math.Ceiling(TotalItemCount / (double)PageSize);
         }
@@ -53,7 +53,7 @@ namespace AitroSoftware.PagedList
         public int TotalItemCount { get; }
 
         /// <inheritdoc />
-        public int PageNumber { get; }
+        public int PageIndex { get; }
 
         /// <inheritdoc />
         public int PageSize { get; }

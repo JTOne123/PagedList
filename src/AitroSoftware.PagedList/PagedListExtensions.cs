@@ -14,14 +14,14 @@ namespace AitroSoftware.PagedList
         /// </summary>
         /// <typeparam name="T">The type of object the collection should contain</typeparam>
         /// <param name="source">The source <see cref="IEnumerable{T}"/> to be divided into subsets.</param>
-        /// <param name="pageNumber">The one based index of the page.</param>
+        /// <param name="pageIndex">The one based index of the page.</param>
         /// <param name="pageSize">The maximum number of items allowed on one page.</param>
         /// <returns>
         /// A subset of this <see cref="IEnumerable{T}"/>.
         /// </returns>
-        public static IPagedList<T> ToPagedList<T>(this IEnumerable<T> source, int pageNumber, int pageSize)
+        public static IPagedList<T> ToPagedList<T>(this IEnumerable<T> source, int pageIndex, int pageSize)
         {
-            return CreatePagedListInternal(source, pageNumber, pageSize);
+            return CreatePagedListInternal(source, pageIndex, pageSize);
         }
 
         private static IPagedList<T> CreatePagedListInternal<T>(IEnumerable<T> source, int pageIndex, int pageSize)

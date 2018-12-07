@@ -48,11 +48,11 @@ namespace AitroSoftware.PagedList.Tests
         [Theory]
         [InlineData(new[] { 1, 2, 3, 4 }, 1, 1)]
         [InlineData(new[] { 1, 2, 3, 4, 5 }, 2, 2)]
-        public void PageNumberIsPreserved(int[] data, int pageNum, int expectedPageNumber)
+        public void PageIndexIsPreserved(int[] data, int pageNum, int expectedPageNumber)
         {
             var pagedList = data.ToPagedList(pageNum, 1);
 
-            Assert.Equal(expectedPageNumber, pagedList.PageNumber);
+            Assert.Equal(expectedPageNumber, pagedList.PageIndex);
         }
 
         [Theory]

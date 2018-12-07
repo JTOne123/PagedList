@@ -21,7 +21,7 @@ namespace AitroSoftware.PagedList
         /// <summary>
         /// Gets the 1 based index of the current page
         /// </summary>
-        int PageNumber { get; }
+        int PageIndex { get; }
 
         /// <summary>
         /// Gets the maximum size of any individual page
